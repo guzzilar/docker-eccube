@@ -1,6 +1,11 @@
 #!/bin/sh
 a2enmod rewrite
 
+# Download the latest WordPress.
+curl -O https://github.com/EC-CUBE/ec-cube/archive/eccube-2.13.3.zip
+unzip eccube-2.13.3.zip
+rm eccube-2.13.3.zip
+
 chown -R www-data:www-data /var/www/html
 
 apache2 -D FOREGROUND
