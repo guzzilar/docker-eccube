@@ -2,7 +2,7 @@
 a2enmod rewrite
 
 # Download the latest WordPress.
-curl -O https://github.com/EC-CUBE/ec-cube/archive/eccube-2.13.3.zip
+curl -o eccube-2.13.3.zip https://codeload.github.com/EC-CUBE/ec-cube/zip/eccube-2.13.3
 unzip eccube-2.13.3.zip
 rm eccube-2.13.3.zip
 
