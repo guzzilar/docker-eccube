@@ -32,7 +32,7 @@ done
 build() {
     docker-compose -f ./src/$1/docker-compose.yml stop
     docker-compose -f ./src/$1/docker-compose.yml rm -f php
-    docker-compose -f ./src/$1/docker-compose.yml rm -f mysql
+    docker-compose -f ./src/$1/docker-compose.yml rm -f postgres
 
     docker-compose -f ./src/$1/docker-compose.yml up --build
 

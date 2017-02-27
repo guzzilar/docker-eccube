@@ -4,9 +4,10 @@ MAINTAINER Guzzilar
 RUN usermod -u 1000 www-data
 
 RUN apt-get update && apt-get install -y --force-yes \
+    libpq-dev \
     unzip
 
-RUN docker-php-ext-install mysql
+RUN docker-php-ext-install pdo pdo_pgsql pgsql
 
 # WAIT-FOR-IT.sh.
 ADD ./bin/wait-for-it /var/www/bin/wait-for-it
