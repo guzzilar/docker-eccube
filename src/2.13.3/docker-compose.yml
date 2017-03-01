@@ -1,16 +1,17 @@
 version: '2'
 services:
-  php:
+  www:
     build: .
-    command: ["/var/www/bin/wait-for-it", "-t", "60", "postgres:5432", "--", "/var/www/bin/install"]
+    image: eccube:2.13.3
+    command: ["/var/www/bin/wait-for-it", "-t", "60", "db:5432", "--", "/var/www/bin/install"]
     ports:
       - "80:80"
     depends_on:
-      - postgres
+      - db
     volumes:
       - ./html:/var/www/html
 
-  postgres:
+  db:
     image: postgres:9.6.2
     ports:
       - "5432:5432"
