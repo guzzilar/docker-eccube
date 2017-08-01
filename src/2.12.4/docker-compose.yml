@@ -1,0 +1,23 @@
+version: '3'
+services:
+  www:
+    build: .
+    image: eccube:2.12.4
+    command: ["/var/www/bin/wait-for-it", "-t", "60", "db:5432", "--", "/var/www/bin/install"]
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+    volumes:
+      - ./html:/var/www/html
+    env_file:
+      - default.env
+
+  db:
+    image: postgres:9.6.2
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: www
+      POSTGRES_PASSWORD: root
+  
